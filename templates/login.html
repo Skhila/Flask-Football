@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block content %}
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+    <div class="notification is-danger">
+        {{ messages[0] }}
+    </div>
+{% endif %}
+{% endwith %}
+
+<div class="position-absolute" style="align-items: center; display: flex; justify-content: center; height: 100%; width: 100%">
+
+    <form method="post">
+        <div class="form-floating mb-3" >
+          <input style="width: auto; min-width: 400px" name="username" type="text" class="form-control" id="floatingInput" placeholder="Username">
+          <label style="color: limegreen" for="floatingInput">Username</label>
+        </div>
+        <div class="form-floating">
+          <input name="password" type="password" style="width: auto; min-width: 400px" class="form-control" id="floatingPassword" placeholder="Password">
+          <label style="color: limegreen" for="floatingPassword">Password</label>
+        </div>
+
+        <div>
+            <button type="submit" style="width: 400px; align-self: center; margin-top: 13%;" class="btn btn-success ">LOGIN</button>
+        </div>
+            <a class="position-absolute " style="font-size: 19px; text-align: center;  color: limegreen;
+            font-weight: bold" href="{{ url_for('signup') }}">Don't Have An Account? Sign Up </a>
+
+    </form>
+</div>
+
+{% endblock %}
