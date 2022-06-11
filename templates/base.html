@@ -36,18 +36,19 @@
               </li>
             {% endif %}
 
-            {% if current_user.is_authenticated %}
               <li class="nav-item">
                 <a class="nav-link" style="color: limegreen; font-weight: bold" href="{{ url_for('about') }}">About Us</a>
               </li>
-            {% endif %}
 
-            {% if current_user.is_authenticated %}
               <li class="nav-item">
                 <a class="nav-link" style="color: limegreen; font-weight: bold" href="{{ url_for('leagues') }}">About Leagues</a>
               </li>
-            {% endif %}
 
+            {% if not current_user.is_authenticated %}
+              <li class="nav-item" >
+                <a class="nav-link" style="color: limegreen; font-weight: bold" href="{{ url_for('login') }}">Login</a>
+              </li>
+            {% endif %}
             {% if current_user.is_authenticated %}
               <li class="nav-item">
                 <a class="nav-link" style="color: crimson; font-weight: bold" href="{{ url_for('logout') }}">LOGOUT</a>
